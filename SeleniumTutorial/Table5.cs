@@ -15,7 +15,7 @@ namespace SeleniumTutorial
     {
         static void Main(string[] args)
         {
-            int rownum = 3;
+            int rownum = 2;
             tbldataCol TblcolData = new tbldataCol();
             TblcolData.Coldata(rownum);
 
@@ -40,16 +40,16 @@ namespace SeleniumTutorial
                 IList<IWebElement> tblRow = new List<IWebElement>(tbl.FindElements(By.TagName("tr")));
                 int row_count = tblRow.Count();
 
-                for (int i = 2; i <= row_count; i++)
-                {
-                    IList<IWebElement> colCount = new List<IWebElement>(tbl.FindElements(By.XPath("//table[@id='customers']/tbody/tr[" + i + "]/td")));
+            int colno = rowNumber;
+               
+                    IList<IWebElement> colCount = new List<IWebElement>(tbl.FindElements(By.XPath("//table[@id='customers']/tbody/tr[" + colno + "]/td")));
                     int column_count = colCount.Count();
 
-                    string actualXpath = beforeRowXpath + i + afterRowXpath;
+                    string actualXpath = beforeRowXpath + colno + afterRowXpath;
                     IWebElement tbldata = driver.FindElement(By.XPath(actualXpath));
                     Console.WriteLine(tbldata.Text);
 
-                }
+            
         }
     }
 }
