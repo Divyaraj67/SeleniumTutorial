@@ -17,14 +17,14 @@ namespace SeleniumTutorial
         {
             int rownum = 2;
             tbldata tableData = new tbldata();
-            tableData.tabledata(rownum);
+            tableData.tableDataRow(rownum);
             
 
         }
     }
     public class tbldata
     {
-        public void tabledata(int rowNumber)
+        public void tableDataRow(int rowNumber)
         {
             
             IWebDriver driver = new ChromeDriver();
