@@ -13,18 +13,26 @@ namespace SeleniumTutorial
 {
     internal class Table5
     {
+        //program to print desired column data
         static void Main(string[] args)
         {
-            int rownum = 2;
+
+            Console.WriteLine("Please enter column which you want to print");
+            string data = Console.ReadLine();
+            int ColNo = Convert.ToInt32(data);
             tbldataCol TblcolData = new tbldataCol();
-            TblcolData.Coldata(rownum);
+            TblcolData.Coldata(ColNo);
 
+            //*[@id="customers"]/tbody/tr[2]/td[1]
+            //*[@id="customers"]/tbody/tr[3]/td[1]
 
+            //*[@id="customers"]/tbody/tr[2]/td[2]
+            //*[@id="customers"]/tbody/tr[3]/td[2]
         }
     }
     public class tbldataCol
     {
-        public void Coldata(int rowNumber)
+        public void Coldata(int ColumnNumber)
         {
            
                 //Prints all headers of table
@@ -33,21 +41,29 @@ namespace SeleniumTutorial
 
 
                 String beforeRowXpath = "//*[@id='customers']/tbody/tr[";
-                string afterRowXpath = "]/td[1]";
+                string afterRowXpath = "]/td[";
+                string afterColXpath = "]";
 
 
                 IWebElement tbl = driver.FindElement(By.XPath("//table[@id='customers']"));
                 IList<IWebElement> tblRow = new List<IWebElement>(tbl.FindElements(By.TagName("tr")));
                 int row_count = tblRow.Count();
 
-            int colno = rowNumber;
-               
-                    IList<IWebElement> colCount = new List<IWebElement>(tbl.FindElements(By.XPath("//table[@id='customers']/tbody/tr[" + colno + "]/td")));
-                    int column_count = colCount.Count();
+                int colno = ColumnNumber;
+                for(int i=2;i<=row_count;i++)
+                {
+                string actualXpath = beforeRowXpath + i + afterRowXpath + colno + afterColXpath;
+                IWebElement tbldata = driver.FindElement(By.XPath(actualXpath));
+                Console.WriteLine(tbldata.Text);
 
-                    string actualXpath = beforeRowXpath + colno + afterRowXpath;
-                    IWebElement tbldata = driver.FindElement(By.XPath(actualXpath));
-                    Console.WriteLine(tbldata.Text);
+                }
+               
+                 
+            
+
+                    //string actualXpath = beforeRowXpath + colno + afterRowXpath;
+                    //IWebElement tbldata = driver.FindElement(By.XPath(actualXpath));
+                    //Console.WriteLine(tbldata.Text);
 
             
         }

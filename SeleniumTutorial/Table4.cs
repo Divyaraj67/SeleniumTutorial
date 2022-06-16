@@ -13,9 +13,12 @@ namespace SeleniumTutorial
 {
     internal class Table4
     {
+        //program to print drsired row data
         static void Main1(string[] args)
         {
-            int rownum = 2;
+            Console.WriteLine("Please enter row which you want to print");
+            string data = Console.ReadLine();
+            int rownum = Convert.ToInt32(data);
             tbldata tableData = new tbldata();
             tableData.tableDataRow(rownum);
             
