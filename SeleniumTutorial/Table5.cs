@@ -14,7 +14,7 @@ namespace SeleniumTutorial
     internal class Table5
     {
         //program to print desired column data
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
 
             Console.WriteLine("Please enter column which you want to print");

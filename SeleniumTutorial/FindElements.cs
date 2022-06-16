@@ -17,19 +17,23 @@ namespace SeleniumTutorial
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
 
-            IList<IWebElement> chkboxs = driver.FindElements(By.XPath("//*[contains(@class,'checkbox')]/child::label"));
+            ////// By List
+
+           /* IList<IWebElement> chkboxs = driver.FindElements(By.XPath("//*[contains(@class,'checkbox')]/child::label"));
             int Size = chkboxs.Count();
 
             for (int i = 0; i < Size; i++)
             {
                 string cls = chkboxs[i].GetAttribute("class");
                 Console.WriteLine("Class of label " + i + " is " + cls);
-            }
+            } */
 
+            //// By Var
 
+           var chkboxs = driver.FindElements(By.XPath("//*[contains(@class,'checkbox')]/child::label"));
 
+           Console.WriteLine(chkboxs.Count());
         }
-
 
     }
 }
