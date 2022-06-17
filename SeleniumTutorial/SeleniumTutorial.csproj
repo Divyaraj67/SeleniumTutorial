@@ -77,6 +77,9 @@
     <Compile Include="ForEach.cs" />
     <Compile Include="Frames.cs" />
     <Compile Include="Frames2.cs" />
+    <Compile Include="KeyboardEvents.cs" />
+    <Compile Include="MouseEvents1.cs" />
+    <Compile Include="MouseEvents2.cs" />
     <Compile Include="Pagesource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

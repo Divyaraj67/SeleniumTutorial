@@ -14,7 +14,7 @@ namespace SeleniumTutorial
 {
     internal class Alerts
     {
-        public static void Main(String[] args)
+        public static void Main1(String[] args)
         {
             WebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://demoqa.com/alerts");
@@ -35,12 +35,13 @@ namespace SeleniumTutorial
             ConfirmAlert.Dismiss();
             Thread.Sleep(2000);
 
-
+            Actions actions = new Actions(driver);
             IWebElement Prompt = driver.FindElement(By.XPath("//*[@id='promtButton']"));
             Prompt.Click();
-            IAlert PromptAlert = driver.SwitchTo().Alert();
+             driver.SwitchTo().Alert().SendKeys("Hii");
             Thread.Sleep(1000);
-            PromptAlert.SendKeys("Hii");
+           //PromptAlert.SendKeys("Hii");
+            actions.SendKeys("Hii");
             Thread.Sleep(2000);
             
         }
