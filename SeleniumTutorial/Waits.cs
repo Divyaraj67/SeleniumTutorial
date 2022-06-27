@@ -50,8 +50,10 @@ namespace SeleniumTutorial
             WebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://chercher.tech/practice/explicit-wait-sample-selenium-webdriver");
 
-            //WebDriverWait wait = new 
-          
+            WebDriverWait FluentWait = new WebDriverWait(driver, TimeSpan.FromSeconds(50));
+            IWebElement btn = FluentWait.Until(ExpectedConditions.ElementToBeClickable(By.Id("disable")));
+            string btntxt = btn.Text;
+            Console.WriteLine(btntxt);
         }
 
 
