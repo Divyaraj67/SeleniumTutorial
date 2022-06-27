@@ -18,7 +18,7 @@ namespace SeleniumTutorial
         {
             WebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://www.guru99.com/handling-iframes-selenium.html");
-
+            driver.Manage().Window.Maximize();
             IList<IWebElement> frames = driver.FindElements(By.XPath("//iframe"));
             int size = frames.Count();
             Console.WriteLine("This webpage is having total "+size+" frames");
